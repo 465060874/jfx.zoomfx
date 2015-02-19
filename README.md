@@ -1,2 +1,2 @@
-# jfx-controls-zoomfx
+# ZoomFX
 Zoomable User Interface support for JavaFX
