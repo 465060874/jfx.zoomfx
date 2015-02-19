@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>Dejv78 :: ZoomFX :: Demo</name>
+
+    <parent>
+        <groupId>com.github.dejv78.jfx.zoomfx</groupId>
+        <artifactId>jfx.zoomfx.pom</artifactId>
+        <version>1.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>jfx.zoomfx.demo</artifactId>
+    <packaging>jar</packaging>
+
+    <properties>
+        <plugin.exec.version>1.3</plugin.exec.version>
+
+        <spring.version>4.0.4.RELEASE</spring.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.dejv78.jfx.zoomfx</groupId>
+            <artifactId>jfx.zoomfx</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${plugin.exec.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
