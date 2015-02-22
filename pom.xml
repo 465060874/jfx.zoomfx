@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>archetypes.pom</artifactId>
-        <groupId>com.github.dejv78.archetypes</groupId>
-        <version>0.0</version>
-        <relativePath>../maven-archetypes/pom.xml</relativePath>
-    </parent>
-
     <name>Dejv78 :: ZoomFX :: POM</name>
 
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.dejv78.jfx.zoomfx</groupId>
-    <artifactId>jfx.zoomfx.pom</artifactId>
-    <version>1.0</version>
+    <artifactId>pom</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>./jfx.zoomfx</module>
-        <module>./jfx.zoomfx.demo</module>
+        <module>./zoomfx</module>
+        <module>./zoomfx-demo</module>
     </modules>
 
     <properties>
@@ -32,6 +25,7 @@
         <junit.version>4.11</junit.version>
         <mockito.version>1.9.5</mockito.version>
         <slf4j.version>1.7.5</slf4j.version>
+        <jfx-commons.version>1.0.0-SNAPSHOT</jfx-commons.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -70,10 +64,17 @@
             </dependency>
 
             <dependency>
+                <groupId>com.github.dejv78.jfx.commons</groupId>
+                <artifactId>commons</artifactId>
+                <version>${jfx-commons.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>com.github.dejv78.jfx.zoomfx</groupId>
-                <artifactId>jfx.zoomfx</artifactId>
+                <artifactId>zoomfx</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 

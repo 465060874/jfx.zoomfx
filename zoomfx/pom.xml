@@ -6,12 +6,12 @@
 
     <parent>
         <groupId>com.github.dejv78.jfx.zoomfx</groupId>
-        <artifactId>jfx.zoomfx.pom</artifactId>
-        <version>1.0</version>
+        <artifactId>pom</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>jfx.zoomfx</artifactId>
+    <artifactId>zoomfx</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
