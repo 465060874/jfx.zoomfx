@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <name>Dejv78 :: ZoomFX :: POM</name>
+    <name>dejv78 :: ZoomFX :: POM</name>
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -25,6 +25,9 @@
         <junit.version>4.11</junit.version>
         <mockito.version>1.9.5</mockito.version>
         <slf4j.version>1.7.5</slf4j.version>
+        <logback.version>1.1.2</logback.version>
+        <commons-math.version>3.2</commons-math.version>
+
         <jfx-commons.version>1.0.0-SNAPSHOT</jfx-commons.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -44,9 +47,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-simple</artifactId>
-                <version>${slf4j.version}</version>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
             </dependency>
 
             <dependency>
@@ -61,6 +64,13 @@
                 <artifactId>mockito-all</artifactId>
                 <version>${mockito.version}</version>
                 <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-math3</artifactId>
+                <version>${commons-math.version}</version>
+                <scope>compile</scope>
             </dependency>
 
             <dependency>
@@ -86,8 +96,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
         </dependency>
 
         <dependency>
@@ -98,6 +108,11 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.dejv78.jfx.commons</groupId>
+            <artifactId>commons</artifactId>
         </dependency>
     </dependencies>
 
