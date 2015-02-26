@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+<?import jfx.zoomfx.ZoomFX?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="jfx.zoomfx.demo.DemoFXMLController">
     <stylesheets>
         <URL value="@main.css"/>
     </stylesheets>
+
+    <ZoomFX AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+        <Rectangle x="-100" y="100" width="200" height="200" fill="brown" stroke="burlywood"/>
+        <Rectangle x="300" y="100" width="200" height="200" fill="burlywood" stroke="brown"/>
+        <Rectangle x="700" y="100" width="200" height="200" fill="brown" stroke="burlywood"/>
+
+        <Rectangle x="-100" y="400" width="200" height="200" fill="burlywood" stroke="brown"/>
+        <Text text="ZoomFX" x="350" y="500" fill="brown" textAlignment="CENTER" style="-fx-font-weight: 900; -fx-font-size: 25px;" stroke="burlywood">
+            <effect>
+                <Glow level="5.0"/>
+            </effect>
+        </Text>
+        <Rectangle x="700" y="400" width="200" height="200" fill="burlywood" stroke="brown"/>
+
+        <Rectangle x="-100" y="700" width="200" height="200" fill="brown" stroke="burlywood"/>
+        <Rectangle x="300" y="700" width="200" height="200" fill="burlywood" stroke="brown"/>
+        <Rectangle x="700" y="700" width="200" height="200" fill="brown" stroke="burlywood"/>
+    </ZoomFX>
 
 </AnchorPane>

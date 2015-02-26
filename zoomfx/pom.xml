@@ -21,6 +21,11 @@
             <artifactId>commons-math3</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.dejv78.jfx.commons</groupId>
+            <artifactId>commons</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
