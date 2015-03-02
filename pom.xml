@@ -176,7 +176,7 @@
     <distributionManagement>
         <repository>
             <id>bintray</id>
-            <url>https://api.bintray.com/maven/dejv78/maven/jfx.commons</url>
+            <url>https://api.bintray.com/maven/dejv78/maven/jfx.zoomfx</url>
         </repository>
     </distributionManagement>
 
