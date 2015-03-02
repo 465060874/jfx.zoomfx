@@ -22,7 +22,6 @@
         <plugin.resources.version>2.7</plugin.resources.version>
         <plugin.jacoco.version>0.7.2.201409121644</plugin.jacoco.version>
         <plugin.source.version>2.4</plugin.source.version>
-        <plugin.javadoc.version>2.10.1</plugin.javadoc.version>
 
         <junit.version>4.11</junit.version>
         <mockito.version>1.9.5</mockito.version>
@@ -127,6 +126,9 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>${plugin.release.version}</version>
                 <configuration>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>

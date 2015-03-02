@@ -14,6 +14,10 @@
     <artifactId>zoomfx</artifactId>
     <packaging>jar</packaging>
 
+    <properties>
+        <plugin.javadoc.version>2.10.1</plugin.javadoc.version>
+    </properties>
+
     <dependencies>
 
         <dependency>
