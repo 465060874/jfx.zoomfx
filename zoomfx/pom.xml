@@ -63,17 +63,4 @@
         </plugins>
     </build>
 
-    <repositories>
-
-        <repository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-
-            <id>central</id>
-            <name>bintray</name>
-            <url>http://dl.bintray.com/dejv78/maven</url>
-        </repository>
-
-    </repositories>
 </project>
