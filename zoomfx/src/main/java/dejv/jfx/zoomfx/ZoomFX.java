@@ -29,7 +29,7 @@ import dejv.jfx.zoomfx.internal.PanningController;
  * JavaFX container, that allows to freely zoom and scroll its content.
  * <p>
  * @since 1.0.0
- * @author dejv78 (www.github.com/dejv78)
+ * @author dejv78 (dejv78.github.io)
  */
 @DefaultProperty("content")
 public class ZoomFX

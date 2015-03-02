@@ -15,7 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * ZoomFX demo application
  * <br/>
  *
- * @author dejv78 (www.github.com/dejv78)
+ * @author dejv78 (dejv78.github.io)
  */
 public class Demo extends Application {
 

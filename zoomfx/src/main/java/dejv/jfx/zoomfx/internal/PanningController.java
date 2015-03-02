@@ -14,7 +14,7 @@ import javafx.scene.layout.Pane;
  * Panning controller for ZoomFX.
  * <p>
  * @since 1.0.0
- * @author dejv78 (www.github.com/dejv78)
+ * @author dejv78 (dejv78.github.io)
  */
 public class PanningController {
 
