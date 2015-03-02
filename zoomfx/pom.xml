@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.github.dejv78.jfx.zoomfx</groupId>
         <artifactId>pom</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
