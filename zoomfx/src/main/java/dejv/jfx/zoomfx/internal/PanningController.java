@@ -1,4 +1,4 @@
-package jfx.zoomfx.internal;
+package dejv.jfx.zoomfx.internal;
 
 import static java.util.Objects.requireNonNull;
 
@@ -11,8 +11,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 /**
- * <br/>
- *
+ * Panning controller for ZoomFX.
+ * <p>
+ * @since 1.0.0
  * @author dejv78 (www.github.com/dejv78)
  */
 public class PanningController {

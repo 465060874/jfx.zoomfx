@@ -21,6 +21,8 @@
         <plugin.release.version>2.5.1</plugin.release.version>
         <plugin.resources.version>2.7</plugin.resources.version>
         <plugin.jacoco.version>0.7.2.201409121644</plugin.jacoco.version>
+        <plugin.source.version>2.4</plugin.source.version>
+        <plugin.javadoc.version>2.10.1</plugin.javadoc.version>
 
         <junit.version>4.11</junit.version>
         <mockito.version>1.9.5</mockito.version>
@@ -34,7 +36,8 @@
     </properties>
 
     <scm>
-        <developerConnection>scm:git:https://github.com/dejv78/jfx.zoomfx.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:dejv78/jfx.zoomfx.git</developerConnection>
+        <url>https://github.com/dejv78/jfx.zoomfx</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -167,9 +170,28 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>bintray</id>
+            <url>https://api.bintray.com/maven/dejv78/maven/jfx.commons</url>
+        </repository>
+    </distributionManagement>
+
+    <repositories>
+
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+
+            <id>central</id>
+            <name>bintray</name>
+            <url>http://dl.bintray.com/dejv78/maven</url>
+        </repository>
+
+    </repositories>
 
 </project>

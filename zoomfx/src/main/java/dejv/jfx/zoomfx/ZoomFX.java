@@ -1,4 +1,4 @@
-package jfx.zoomfx;
+package dejv.jfx.zoomfx;
 
 import javafx.beans.DefaultProperty;
 import javafx.beans.property.DoubleProperty;
@@ -23,12 +23,12 @@ import javafx.scene.transform.Translate;
 import dejv.jfx.commons.geometry.ObservableBounds;
 import dejv.jfx.commons.geometry.ObservableDimension2D;
 import dejv.jfx.commons.geometry.ObservablePoint2D;
-import jfx.zoomfx.internal.PanningController;
+import dejv.jfx.zoomfx.internal.PanningController;
 
 /**
- * Zoomable scroll pane for JavaFX.
- * <br/>
- *
+ * JavaFX container, that allows to freely zoom and scroll its content.
+ * <p>
+ * @since 1.0.0
  * @author dejv78 (www.github.com/dejv78)
  */
 @DefaultProperty("content")
@@ -52,11 +52,12 @@ public class ZoomFX
 
     private final PanningController panningController;
 
+
     public ZoomFX() {
         setupScroll(hscroll, Orientation.HORIZONTAL, SCROLL_MIN, SCROLL_MAX, SCROLL_UNIT_INC);
         setupScroll(vscroll, Orientation.VERTICAL, SCROLL_MIN, SCROLL_MAX, SCROLL_UNIT_INC);
 
-        panningController = new PanningController(contentPane, hscroll, vscroll, ()-> setCursor(Cursor.MOVE), ()-> setCursor(Cursor.DEFAULT));
+        panningController = new PanningController(contentPane, hscroll, vscroll, () -> setCursor(Cursor.MOVE), () -> setCursor(Cursor.DEFAULT));
 
         setupConstraints();
         setupStyle();
@@ -71,11 +72,25 @@ public class ZoomFX
     }
 
 
+    /**
+     * @return The list of contained nodes.
+     */
     public ObservableList<Node> getContent() {
         return contentGroup.getChildren();
     }
 
 
+    /**
+     * @return The container (Pane), that actually holds the content.
+     */
+    public Node getViewport() {
+        return contentPane;
+    }
+
+
+    /**
+     * @return The zoom factor of the content. Value of 1.0 means 1:1 content size, 0.5 means 1:2, etc.
+     */
     public double getZoomFactor() {
         return zoomFactor.get();
     }
@@ -91,6 +106,9 @@ public class ZoomFX
     }
 
 
+    /**
+     * @return whether the panning is enabled, or not. If enabled, dragging with middle mouse button pans the view.
+     */
     public boolean isPanEnabled() {
         return panningController.isPanEnabled();
     }

@@ -1,4 +1,4 @@
-package jfx.zoomfx.demo;
+package dejv.jfx.zoomfx.demo;
 
 import java.io.IOException;
 
