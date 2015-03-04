@@ -9,7 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * ZoomFX demo application
@@ -19,7 +19,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Demo extends Application {
 
-    public static final ApplicationContext APPLICATION_CONTEXT = new ClassPathXmlApplicationContext("demo.xml");
+    public static final ApplicationContext APPLICATION_CONTEXT = new AnnotationConfigApplicationContext();
 
     public static void main(final String[] args) {
         Application.launch(Demo.class, (String[]) null);
