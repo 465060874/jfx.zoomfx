@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import dejv.jfx.zoomfx.ZoomFX?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="dejv.jfx.zoomfx.demo.DemoFXMLController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="dejv.zoomfx.demo.DemoFXMLController">
     <stylesheets>
         <URL value="@main.css"/>
     </stylesheets>

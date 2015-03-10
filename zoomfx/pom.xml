@@ -26,15 +26,18 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.dejv78.jfx.commons</groupId>
-            <artifactId>commons-geometry</artifactId>
-            <version>${jfx-commons.version}</version>
+            <groupId>com.github.dejv78.commons.jfx</groupId>
+            <artifactId>jfx-binding</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.github.dejv78.jfx.commons</groupId>
-            <artifactId>commons-input</artifactId>
-            <version>${jfx-commons.version}</version>
+            <groupId>com.github.dejv78.commons.jfx</groupId>
+            <artifactId>jfx-geometry</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.dejv78.commons.jfx</groupId>
+            <artifactId>jfx-input</artifactId>
         </dependency>
 
     </dependencies>

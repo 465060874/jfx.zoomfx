@@ -1,4 +1,4 @@
-package dejv.jfx.zoomfx.demo;
+package dejv.zoomfx.demo;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -42,7 +42,7 @@ public class DemoFXMLController {
 
     @FXML
     public void initialize() {
-        zoomFX.zoomFactorProperty().addListener((prop, oldVal, newVal)-> zoomFactor.setText(String.format("%d%%", Math.round(newVal.doubleValue()*100))));
+        zoomFX.zoomFactorProperty().addListener((prop, oldVal, newVal) -> zoomFactor.setText(String.format("%d%%", Math.round(newVal.doubleValue() * 100))));
         bOne.setOnAction((event) -> zoomFX.zoomFactorProperty().set(1.0));
         bMinus.setOnAction((event) -> zoomFX.zoomFactorProperty().set(zoomFX.zoomFactorProperty().get() * 0.75));
         bPlus.setOnAction((event)->zoomFX.zoomFactorProperty().set(zoomFX.zoomFactorProperty().get()*1.25));

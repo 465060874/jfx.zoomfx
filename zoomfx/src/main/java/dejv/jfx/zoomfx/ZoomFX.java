@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.Orientation;
+import javafx.geometry.Point2D;
 import javafx.geometry.VPos;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
@@ -20,16 +21,17 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Scale;
 import javafx.scene.transform.Translate;
 
-import dejv.jfx.commons.geometry.ObservableBounds;
-import dejv.jfx.commons.geometry.ObservableDimension2D;
-import dejv.jfx.commons.geometry.ObservablePoint2D;
-import dejv.jfx.zoomfx.internal.PanningController;
+import dejv.commons.jfx.geometry.ObservableBounds;
+import dejv.commons.jfx.geometry.ObservableDimension2D;
+import dejv.commons.jfx.geometry.ObservablePoint2D;
+
 
 /**
  * JavaFX container, that allows to freely zoom and scroll its content.
  * <p>
- * @since 1.0.0
+ *
  * @author dejv78 (dejv78.github.io)
+ * @since 1.0.0
  */
 @DefaultProperty("content")
 public class ZoomFX
@@ -50,14 +52,14 @@ public class ZoomFX
     private final Group contentGroup = new Group();
     private final Rectangle clip = new Rectangle();
 
-    private final PanningController panningController;
+    private final ObservableBounds pivotLogicalExtent = new ObservableBounds();
+
+    private Point2D panStart = null;
 
 
     public ZoomFX() {
-        setupScroll(hscroll, Orientation.HORIZONTAL, SCROLL_MIN, SCROLL_MAX, SCROLL_UNIT_INC);
-        setupScroll(vscroll, Orientation.VERTICAL, SCROLL_MIN, SCROLL_MAX, SCROLL_UNIT_INC);
-
-        panningController = new PanningController(contentPane, hscroll, vscroll, () -> setCursor(Cursor.MOVE), () -> setCursor(Cursor.DEFAULT));
+        setupScrollbar(hscroll, Orientation.HORIZONTAL, SCROLL_MIN, SCROLL_MAX, SCROLL_UNIT_INC);
+        setupScrollbar(vscroll, Orientation.VERTICAL, SCROLL_MIN, SCROLL_MAX, SCROLL_UNIT_INC);
 
         setupConstraints();
         setupStyle();
@@ -82,6 +84,7 @@ public class ZoomFX
 
     /**
      * @return The container (Pane), that actually holds the content.
+     * Install the zooming and panning events on this control.
      */
     public Node getViewport() {
         return contentPane;
@@ -107,19 +110,47 @@ public class ZoomFX
 
 
     /**
-     * @return whether the panning is enabled, or not. If enabled, dragging with middle mouse button pans the view.
+     * Call to indicate the start of the panning.
+     *
+     * @param sceneX Scene X coordinate
+     * @param sceneY Scene Y coordinate
      */
-    public boolean isPanEnabled() {
-        return panningController.isPanEnabled();
+    public void startPan(double sceneX, double sceneY) {
+        panStart = new Point2D(sceneX, sceneY);
+        setCursor(Cursor.HAND);
     }
 
 
-    public final void setPanEnabled(boolean panEnabled) {
-        panningController.setPanEnabled(panEnabled);
+    /**
+     * Call to update panning in-progress.
+     *
+     * @param sceneX Scene X coordinate
+     * @param sceneY Scene Y coordinate
+     */
+    public void pan(double sceneX, double sceneY) {
+        if (panStart == null) {
+            startPan(sceneX, sceneY);
+        } else {
+            final double dX = (sceneX - panStart.getX()) / (pivotLogicalExtent.widthProperty().get() * zoomFactor.get());
+            final double dY = (sceneY - panStart.getY()) / (pivotLogicalExtent.heightProperty().get() * zoomFactor.get());
+
+            hscroll.setValue(hscroll.getValue() - dX);
+            vscroll.setValue(vscroll.getValue() - dY);
+            panStart = new Point2D(sceneX, sceneY);
+        }
     }
 
 
-    private void setupScroll(final ScrollBar scroll, final Orientation orientation, final double min, final double max, final double unitIncrement) {
+    /**
+     * Call to indicate the end of the panning.
+     */
+    public void endPan() {
+        panStart = null;
+        setCursor(Cursor.DEFAULT);
+    }
+
+
+    private void setupScrollbar(final ScrollBar scroll, final Orientation orientation, final double min, final double max, final double unitIncrement) {
         scroll.setOrientation(orientation);
         scroll.setMin(min);
         scroll.setMax(max);
@@ -183,13 +214,10 @@ public class ZoomFX
                 viewportPhysicalSize.widthProperty().divide(zoomFactor).multiply(0.5),
                 viewportPhysicalSize.heightProperty().divide(zoomFactor).multiply(0.5));
 
-        final ObservableBounds pivotLogicalExtent = new ObservableBounds(
-                contentLogicalBounds.minXProperty().add(viewportLogicalHalfSize.widthProperty()),
-                contentLogicalBounds.minYProperty().add(viewportLogicalHalfSize.heightProperty()),
-                contentLogicalBounds.maxXProperty().subtract(viewportLogicalHalfSize.widthProperty()),
-                contentLogicalBounds.maxYProperty().subtract(viewportLogicalHalfSize.heightProperty()));
-
-        panningController.initBindings(pivotLogicalExtent.widthProperty(), pivotLogicalExtent.heightProperty(), zoomFactor);
+        pivotLogicalExtent.minXProperty().bind(contentLogicalBounds.minXProperty().add(viewportLogicalHalfSize.widthProperty()));
+        pivotLogicalExtent.minYProperty().bind(contentLogicalBounds.minYProperty().add(viewportLogicalHalfSize.heightProperty()));
+        pivotLogicalExtent.maxXProperty().bind(contentLogicalBounds.maxXProperty().subtract(viewportLogicalHalfSize.widthProperty()));
+        pivotLogicalExtent.maxYProperty().bind(contentLogicalBounds.maxYProperty().subtract(viewportLogicalHalfSize.heightProperty()));
 
         final ObservablePoint2D pivotLogicalCoords = new ObservablePoint2D(
                 pivotLogicalExtent.minXProperty().add(pivotLogicalExtent.widthProperty().multiply(hscroll.valueProperty())),

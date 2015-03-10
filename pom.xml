@@ -28,7 +28,7 @@
         <logback.version>1.1.2</logback.version>
         <commons-math.version>3.2</commons-math.version>
 
-        <jfx-commons.version>1.1.0-SNAPSHOT</jfx-commons.version>
+        <dejv-commons.version>1.1.0-SNAPSHOT</dejv-commons.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -75,9 +75,33 @@
             </dependency>
 
             <dependency>
-                <groupId>com.github.dejv78.jfx.commons</groupId>
-                <artifactId>commons</artifactId>
-                <version>${jfx-commons.version}</version>
+                <groupId>com.github.dejv78.commons.jfx</groupId>
+                <artifactId>jfx-binding</artifactId>
+                <version>${dejv-commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.dejv78.commons.jfx</groupId>
+                <artifactId>jfx-geometry</artifactId>
+                <version>${dejv-commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.dejv78.commons.jfx</groupId>
+                <artifactId>jfx-input</artifactId>
+                <version>${dejv-commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.dejv78.commons.config</groupId>
+                <artifactId>config</artifactId>
+                <version>${dejv-commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.dejv78.commons.config</groupId>
+                <artifactId>config-json</artifactId>
+                <version>${dejv-commons.version}</version>
             </dependency>
 
             <dependency>

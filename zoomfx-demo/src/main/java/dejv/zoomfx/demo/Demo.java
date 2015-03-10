@@ -1,4 +1,4 @@
-package dejv.jfx.zoomfx.demo;
+package dejv.zoomfx.demo;
 
 import java.io.IOException;
 
@@ -8,8 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import dejv.commons.config.ConfigException;
+import dejv.commons.config.ConfigProvider;
+import dejv.zoomfx.demo.beans.Config;
 
 /**
  * ZoomFX demo application
@@ -19,16 +22,24 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class Demo extends Application {
 
-    public static final ApplicationContext APPLICATION_CONTEXT = new AnnotationConfigApplicationContext();
+    public static final AnnotationConfigApplicationContext APPLICATION_CONTEXT = new AnnotationConfigApplicationContext(Config.class);
+    public static DemoConfig config = null;
+
 
     public static void main(final String[] args) {
+
         Application.launch(Demo.class, (String[]) null);
     }
 
 
+    public ConfigProvider configProvider;
+
+
     @Override
     public void start(final Stage primaryStage) throws Exception {
+
         try {
+            initConfig();
 
             final FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(Demo.class.getResource("/fxml/demo.fxml"));
@@ -46,5 +57,15 @@ public class Demo extends Application {
         }
     }
 
+    private void initConfig() {
+
+        configProvider = APPLICATION_CONTEXT.getBean(ConfigProvider.class);
+
+        try {
+            config = configProvider.load(DemoConfig.class);
+        } catch (ConfigException e) {
+            config = new DemoConfig();
+        }
+    }
 }
 
