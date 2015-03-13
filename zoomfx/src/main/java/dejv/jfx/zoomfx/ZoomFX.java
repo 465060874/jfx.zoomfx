@@ -109,6 +109,12 @@ public class ZoomFX
     }
 
 
+    public void zoom(double delta) {
+        double mult = 1.0d + (delta / SCROLLING_DIVISOR);
+        zoomFactor.set(zoomFactor.get() * mult);
+    }
+
+
     /**
      * Call to indicate the start of the panning.
      *

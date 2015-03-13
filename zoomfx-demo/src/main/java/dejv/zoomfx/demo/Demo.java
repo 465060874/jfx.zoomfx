@@ -23,7 +23,7 @@ import dejv.zoomfx.demo.beans.Config;
 public class Demo extends Application {
 
     public static final AnnotationConfigApplicationContext APPLICATION_CONTEXT = new AnnotationConfigApplicationContext(Config.class);
-    public static DemoConfig config = null;
+    public static DemoConfig CONFIG = null;
 
 
     public static void main(final String[] args) {
@@ -57,14 +57,22 @@ public class Demo extends Application {
         }
     }
 
+
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        configProvider.store(CONFIG);
+    }
+
+
     private void initConfig() {
 
         configProvider = APPLICATION_CONTEXT.getBean(ConfigProvider.class);
 
         try {
-            config = configProvider.load(DemoConfig.class);
+            CONFIG = configProvider.load(DemoConfig.class);
         } catch (ConfigException e) {
-            config = new DemoConfig();
+            CONFIG = new DemoConfig();
         }
     }
 }
