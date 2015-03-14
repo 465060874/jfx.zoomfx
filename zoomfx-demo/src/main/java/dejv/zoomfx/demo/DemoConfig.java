@@ -1,8 +1,8 @@
 package dejv.zoomfx.demo;
 
-import dejv.commons.jfx.input.Buttons;
+import dejv.commons.jfx.input.MouseButtons;
 import dejv.commons.jfx.input.properties.GestureEventProperties;
-import dejv.commons.jfx.input.properties.mouse.MouseGestureEventProperties;
+import dejv.commons.jfx.input.properties.MouseEventProperties;
 
 /**
  * <br/>
@@ -12,7 +12,7 @@ import dejv.commons.jfx.input.properties.mouse.MouseGestureEventProperties;
 public class DemoConfig {
 
     private GestureEventProperties zoomFXZoom = new GestureEventProperties(null);
-    private MouseGestureEventProperties zoomFXPan = new MouseGestureEventProperties(null, new Buttons().withMiddle());
+    private MouseEventProperties zoomFXPan = new MouseEventProperties(null, new MouseButtons().withMiddle());
 
 
     public GestureEventProperties getZoomFXZoom() {
@@ -25,12 +25,12 @@ public class DemoConfig {
     }
 
 
-    public MouseGestureEventProperties getZoomFXPan() {
+    public MouseEventProperties getZoomFXPan() {
         return zoomFXPan;
     }
 
 
-    public void setZoomFXPan(MouseGestureEventProperties zoomFXPan) {
+    public void setZoomFXPan(MouseEventProperties zoomFXPan) {
         this.zoomFXPan = zoomFXPan;
     }
 }
