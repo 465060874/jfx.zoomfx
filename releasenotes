@@ -1,0 +1,16 @@
+# ZoomFX
+
+## Version 1.0.1
+
+* Added project info for Maven Central
+* dejv.commons dependency updated to version 1.1.0
+
+### ZoomFX control
+* Externalized "pan" and "zoom" controls
+
+### Demo
+* configuration persistence with commons-config
+
+## Version 1.0.0
+
+* Initial implementation

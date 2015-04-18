@@ -11,9 +11,10 @@ import dejv.commons.config.ConfigProvider;
 import dejv.commons.config.json.JSONConfigProvider;
 
 /**
- * <br/>
+ * <p>
  *
  * @author dejv78 (dejv78.github.io)
+ * @since 1.0.0
  */
 @Configuration
 @Lazy

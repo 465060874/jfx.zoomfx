@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <name>dejv78 :: ZoomFX :: POM</name>
-
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.dejv78.jfx.zoomfx</groupId>
     <artifactId>pom</artifactId>
     <version>1.0.1-SNAPSHOT</version>
-
     <packaging>pom</packaging>
+
+    <name>dejv78 :: ZoomFX :: POM</name>
+    <description>Zoomable User Interface support for JavaFX</description>
+    <url>http://dejv78.github.io/jfx.zoomfx/</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>dejv78</name>
+            <email>dejv78@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:dejv78/jfx.zoomfx.git</connection>
+        <developerConnection>scm:git:git@github.com:dejv78/jfx.zoomfx.git</developerConnection>
+        <url>https://github.com/dejv78/jfx.zoomfx</url>
+        <tag>HEAD</tag>
+    </scm>
 
     <modules>
         <module>./zoomfx</module>
@@ -28,16 +50,10 @@
         <logback.version>1.1.2</logback.version>
         <commons-math.version>3.2</commons-math.version>
 
-        <dejv-commons.version>1.1.0-SNAPSHOT</dejv-commons.version>
+        <dejv-commons.version>1.1.0</dejv-commons.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <scm>
-        <developerConnection>scm:git:git@github.com:dejv78/jfx.zoomfx.git</developerConnection>
-        <url>https://github.com/dejv78/jfx.zoomfx</url>
-        <tag>HEAD</tag>
-    </scm>
 
     <dependencyManagement>
         <dependencies>

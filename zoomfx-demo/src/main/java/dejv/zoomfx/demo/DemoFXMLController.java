@@ -14,7 +14,6 @@ import dejv.jfx.zoomfx.ZoomFX;
 
 /**
  * FXML controller for fxml/demo.fxml
- * <br/>
  *
  * @author dejv78 (dejv78.github.io)
  */
@@ -50,11 +49,11 @@ public class DemoFXMLController {
         bMinus.setOnAction((event) -> zoomFX.zoomFactorProperty().set(zoomFX.zoomFactorProperty().get() * 0.75));
         bPlus.setOnAction((event) -> zoomFX.zoomFactorProperty().set(zoomFX.zoomFactorProperty().get() * 1.25));
 
-        ScrollActionHandler.from(Demo.CONFIG.getZoomFXZoom())
+        ScrollActionHandler.with(Demo.CONFIG.getZoomFXZoom())
                 .doOnScroll((event) -> zoomFX.zoom(event.getDeltaY()))
                 .register(zoomFX.getViewport());
 
-        DragActionHandler.from(Demo.CONFIG.getZoomFXPan())
+        DragActionHandler.with(Demo.CONFIG.getZoomFXPan())
                 .doOnDragStart((event) -> zoomFX.startPan(event.getSceneX(), event.getSceneY()))
                 .doOnDrag((event) -> zoomFX.pan(event.getSceneX(), event.getSceneY()))
                 .doOnDragFinish((event) -> zoomFX.endPan())
