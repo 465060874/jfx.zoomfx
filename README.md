@@ -7,7 +7,7 @@ Provided by dejv78 under the terms of MIT license.
 Visit [https://dejv78.github.io/jfx.zoomfx/](https://dejv78.github.io/jfx.zoomfx/)
 
 ## Javadoc
-Browse on GitHub: [https://dejv78.github.io/jfx.zoomfx/apidocs/](https://dejv78.github.io/jfx.zoomfx/apidocs/)
+Browse on GitHub: [https://dejv78.github.io/jfx.zoomfx/apidocs/index.html](https://dejv78.github.io/jfx.zoomfx/apidocs/index.html)
 
 ## Files (Binaries, Sources, API Docs)
 Download on Bintray: [https://bintray.com/dejv78/maven/jfx.zoomfx/](https://bintray.com/dejv78/maven/jfx.zoomfx/)
