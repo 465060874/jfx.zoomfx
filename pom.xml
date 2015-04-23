@@ -4,7 +4,7 @@
 
     <groupId>com.github.dejv78.jfx.zoomfx</groupId>
     <artifactId>pom</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>dejv78 :: ZoomFX :: POM</name>
@@ -29,7 +29,7 @@
         <connection>scm:git:git@github.com:dejv78/jfx.zoomfx.git</connection>
         <developerConnection>scm:git:git@github.com:dejv78/jfx.zoomfx.git</developerConnection>
         <url>https://github.com/dejv78/jfx.zoomfx</url>
-        <tag>v1.0.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <modules>
