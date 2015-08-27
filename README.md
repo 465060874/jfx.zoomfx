@@ -1,7 +1,12 @@
 # ZoomFX
 Zoomable Pane control for JavaFX.
 
+
+**Under development (currently no working version available)**
+
+
 Provided by dejv78 under the terms of MIT license.
+
 
 ## Project page
 Visit [https://dejv78.github.io/jfx.zoomfx/](https://dejv78.github.io/jfx.zoomfx/)
